@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MvcApplication3.Models.Products>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Ajax.BeginForm(
+
+    new AjaxOptions
+    {
+        HttpMethod = "get",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "ProductList"
+    }
+
+    ))
+
+{    
+ <input type="text" name="Criterio"/>
+ <input type="submit" value="Buscar" id="Buscar"/>
+
+}    
+ @Html.Partial("ProductoPartial")
+ 
+ 
+
+
